@@ -37,6 +37,13 @@ int main()
 
         cout<<"Enter row (0-2) and column (0-2) for "<<currentPlayer<<": ";
         cin>>r>>c;
+        if (r < 0 || r > 2 || c < 0 || c > 2 || board[r][c] != ' ')
+        {
+            cout << "Invalid move. Try again." << endl;
+            j--; // Decrement j to allow the player to retry
+            continue;
+        }
+        
         board[r][c] = currentPlayer;
         currentPlayer= (currentPlayer == 'X') ? 'O' : 'X';
 
